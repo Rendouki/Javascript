@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Manipulation Activity</title>
+    <style>
+        .dark-mode {
+            background-color: #222;
+            color: white;
+        }
+        .box {
+            padding: 20px;
+            border: 2px solid black;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="main-title">Welcome to DOM Manipulation</h1>
+    
+    <button id="theme-btn">Toggle Dark Mode</button>
+    <button id="text-btn">Change Title</button>
+
+    <div class="box" id="info-box">
+        <p>This box will be updated by JavaScript.</p>
+    </div>
+
+    <script>
+        const themeBtn = document.getElementById('theme-btn');
+        const textBtn = document.getElementById('text-btn');
+        const title = document.getElementById('main-title');
+        const box = document.getElementById('info-box');
+
+        themeBtn.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        textBtn.addEventListener('click', function() {
+            title.innerText = "Title Successfully Changed by JS!";
+            title.style.color = "red";
+            
+            const newParagraph = document.createElement('p');
+            newParagraph.innerText = "A new paragraph was added!";
+            box.appendChild(newParagraph);
+        });
+    </script>
+</body>
+</html>
